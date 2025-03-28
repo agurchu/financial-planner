@@ -1,0 +1,50 @@
+{
+    "finances": {
+        "income": 5000.0,
+        "expenses": {
+            "food": 0,
+            "rent": 0,
+            "utilities": 0
+        }
+    },
+    "goals":{
+        "short_term": {
+            "phone": {
+                "target": 0,
+                "timeframe": "",
+                "progress": 0,
+                "priority": 0
+            }
+        },
+        "medium_term":{
+            "car": {
+                "target": 0,
+                "timeframe": "",
+                "progress": 0,
+                "priority": 0
+            }
+        },
+        "long_term":{
+            "house": {
+                "target": 0,
+                "timeframe": "",
+                "progress": 0,
+                "priority": 0
+            }
+        }
+    },
+    "swot": {
+        "strengths": {
+            "discipline": true
+        },
+        "weaknesses": {
+            "impulse_spending": true
+        },
+        "opportunities": {
+            "promotion": true
+        },
+        "threats": {
+            "inflation": true
+        }
+    }
+}
