@@ -4,7 +4,7 @@ from io import StringIO
 import sys
 from financial_planner import FinancialPlanner, ai_guidance
 
-laptop = "Laptop"
+laptop = "laptop"
 class TestFinancialPlanner(unittest.TestCase):
 
     def setUp(self):
@@ -21,10 +21,40 @@ class TestFinancialPlanner(unittest.TestCase):
         short_goal = self.planner.get_short_goal()
         
         self.assertEqual(output.getvalue(), f"""Insert your short goal
-                         Invalid short goal
-                         Insert your short goal
-                         Your goal is {laptop}""")
+Invalid short goal
+Insert your short goal
+Your goal is {laptop}\n""")
         self.assertEqual(short_goal, f"{laptop}")
+        
+    @patch("sys.stdin",StringIO(f"1aptop\n{laptop}"))    
+    def test_long_goal(self):
+        """
+            Testing invalid prompt for long goal
+        """
+        output = StringIO()
+        sys.stdout = output
+        short_goal = self.planner.get_long_goal()
+        
+        self.assertEqual(output.getvalue(), f"""Insert your long goal
+Invalid long goal
+Insert your long goal
+Your goal is {laptop}\n""")
+        self.assertEqual(short_goal, f"{laptop}")
+        
+    @patch("sys.stdin",StringIO(f"1aptop\n{laptop}"))   
+    def test_medium_goal(self):
+        """
+            Testing invalid prompt for medium goal
+        """
+        output = StringIO()
+        sys.stdout = output
+        medium_goal = self.planner.get_medium_goal()
+        
+        self.assertEqual(output.getvalue(), f"""Insert your medium goal
+Invalid medium goal
+Insert your medium goal
+Your goal is {laptop}\n""")
+        self.assertEqual(medium_goal, f"{laptop}")
         
     def test_input_finances(self):
         """Testing correct finance input."""
@@ -42,19 +72,18 @@ class TestFinancialPlanner(unittest.TestCase):
         self.planner.input_finances()
         
         self.assertEqual(output.getvalue(),"""Insert your total monthly income
-                         Invalid income prompt
-                         Insert your total monthly income
-                         Invalid income prompt
-                         Insert your total monthly income
-                         Insert your expense name(e.g. rent, food) or done if you are done
-                         Insert its amount(e.g. 1500)
-                         Insert your expense name(e.g. rent, food) or done if you are done
-                         Insert its amount(e.g. 1500)
+Invalid income prompt
+Insert your total monthly income
+Invalid income prompt
+Insert your total monthly income
+Insert your expense name(e.g. rent, food) or done if you are done
+Insert its amount(e.g. 1500)
+Insert your expense name(e.g. rent, food) or done if you are done
+Insert its amount(e.g. 1500)
                          
-                         Finances:
-                         Income: (R5000) 
-                         Expenses: (rent: R1500, groceries: R500)
-                         """)
+Finances:
+Income: (R5000) 
+Expenses: (rent: R1500, groceries: R500)""")
         
     @patch("sys.stdin", StringIO("5000\nrent98\nrent\n1500\nGroceries\n500\ndone"))
     def test_invalid_expense_name(self):
@@ -66,36 +95,36 @@ class TestFinancialPlanner(unittest.TestCase):
         self.planner.input_finances()
         
         self.assertEqual(output.getvalue(),"""Insert your total monthly income
-                         Insert your expense name(e.g. rent, food) or done if you are done
-                         Invalid expense name
-                         Insert its amount(e.g. 1500)
-                         Insert your expense(e.g. rent, food) or done if you are done
-                         Insert its amount(e.g. 1500)
+Insert your expense name(e.g. rent, food) or done if you are done
+Invalid expense name
+Insert its amount(e.g. 1500)
+Insert your expense(e.g. rent, food) or done if you are done
+Insert its amount(e.g. 1500)
                          
-                         Finances:
-                         Income: (R5000) 
-                         Expenses: (rent: R1500, groceries: R500)
-                         """)
+Finances:
+Income: (R5000) 
+Expenses: (rent: R1500, groceries: R500)""")
         
     @patch("sys.stdin", StringIO("5000\nrent\nR1,500\n1500\nGroceries\n500\ndone"))
     def test_invalid_expense_amount(self):
         """
-            Testing invalid expense name
+            Testing invalid expense amount
         """
         output = StringIO()
         sys.stdout = output
         self.planner.input_finances()
         
         self.assertEqual(output.getvalue(),"""Insert your total monthly income
-                         Insert your expense name(e.g. rent, food) or done if you are done
-                         Insert its amount(e.g. 1500)
-                         Insert your expense(e.g. rent, food) or done if you are done
-                         Insert its amount(e.g. 1500)
+Insert your expense name(e.g. rent, food) or done if you are done
+Insert its amount(e.g. 1500)
+Invalid expense amount
+Insert its amount(e.g. 1500)
+Insert your expense(e.g. rent, food) or done if you are done
+Insert its amount(e.g. 1500)
                          
-                         Finances:
-                         Income: (R5000) 
-                         Expenses: (rent: R1500, groceries: R500)
-                         """)
+Finances:
+Income: (R5000) 
+Expenses: (rent: R1500, groceries: R500)""")
         
 
 if __name__ == "__main__":
