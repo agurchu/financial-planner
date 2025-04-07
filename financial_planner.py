@@ -22,7 +22,7 @@ class FinancialPlanner:
         }
         expenses = ""
         while True:
-            montly_income = input("Insert your total monthly income").strip()
+            montly_income = input("Insert your total monthly income\n").strip()
             if montly_income.isdigit():
                 finances["Income"] = int(montly_income)
                 break
@@ -30,26 +30,36 @@ class FinancialPlanner:
             
         expenses_run = True
         while expenses_run:
+            amount_run = True
             while True:
-                expense_name = input("Insert your expense name(e.g. rent, food) or done if you are done").strip().lower()
+                
+                expense_name = input("Insert your expense name(e.g. rent, food) or done if you are done\n").strip().lower()
                 if expense_name == "done":
                     expenses_run = False
+                    amount_run = False
+                   
                     break
                 elif expense_name.isalpha():
                     finances["Expenses"][expense_name] = 0
+                    amount_run = True
                     break
-                print("Invalid expense name")
-            while expenses_run:
-                expense_amount = input("Insert its amount(e.g. 1500)").strip()
+                else:
+                    print("Invalid expense name")
+                    amount_run = False
+                
+            while amount_run:
+                expense_amount = input("Insert its amount(e.g. 1500)\n").strip()
                 if expense_amount.isdigit():
                     finances["Expenses"][expense_name] = int(expense_amount)
                     break
                 print("Invalid expense amount")
+               
         for expense, amount in finances["Expenses"].items():
-            expenses += f"{expense}: R{str(amount)},"
+            expenses += f" {expense}: R{str(amount)},"
         income = finances.get("Income")
-        expense_clean = expenses.strip(",")
-        print(f"\nIncome: (R{income})")
+        expense_clean = expenses.strip(", ")
+        print("\nFinances:")
+        print(f"Income: (R{income})")
         # print(f"Expenses: ({",".join(key+": R"+value for key,value in finances["Expenses"].items())})")
         print(f"Expenses: ({expense_clean})")
     

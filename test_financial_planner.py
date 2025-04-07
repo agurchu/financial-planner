@@ -80,10 +80,11 @@ Insert your expense name(e.g. rent, food) or done if you are done
 Insert its amount(e.g. 1500)
 Insert your expense name(e.g. rent, food) or done if you are done
 Insert its amount(e.g. 1500)
-                         
+Insert your expense name(e.g. rent, food) or done if you are done
+
 Finances:
-Income: (R5000) 
-Expenses: (rent: R1500, groceries: R500)""")
+Income: (R5000)
+Expenses: (rent: R1500, groceries: R500)\n""")
         
     @patch("sys.stdin", StringIO("5000\nrent98\nrent\n1500\nGroceries\n500\ndone"))
     def test_invalid_expense_name(self):
@@ -97,13 +98,15 @@ Expenses: (rent: R1500, groceries: R500)""")
         self.assertEqual(output.getvalue(),"""Insert your total monthly income
 Insert your expense name(e.g. rent, food) or done if you are done
 Invalid expense name
+Insert your expense name(e.g. rent, food) or done if you are done
 Insert its amount(e.g. 1500)
-Insert your expense(e.g. rent, food) or done if you are done
+Insert your expense name(e.g. rent, food) or done if you are done
 Insert its amount(e.g. 1500)
-                         
+Insert your expense name(e.g. rent, food) or done if you are done
+
 Finances:
-Income: (R5000) 
-Expenses: (rent: R1500, groceries: R500)""")
+Income: (R5000)
+Expenses: (rent: R1500, groceries: R500)\n""")
         
     @patch("sys.stdin", StringIO("5000\nrent\nR1,500\n1500\nGroceries\n500\ndone"))
     def test_invalid_expense_amount(self):
@@ -119,12 +122,13 @@ Insert your expense name(e.g. rent, food) or done if you are done
 Insert its amount(e.g. 1500)
 Invalid expense amount
 Insert its amount(e.g. 1500)
-Insert your expense(e.g. rent, food) or done if you are done
+Insert your expense name(e.g. rent, food) or done if you are done
 Insert its amount(e.g. 1500)
-                         
+Insert your expense name(e.g. rent, food) or done if you are done
+
 Finances:
-Income: (R5000) 
-Expenses: (rent: R1500, groceries: R500)""")
+Income: (R5000)
+Expenses: (rent: R1500, groceries: R500)\n""")
         
 
 if __name__ == "__main__":
