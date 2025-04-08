@@ -11,50 +11,78 @@ class TestFinancialPlanner(unittest.TestCase):
         """Setting up a fresh FinancialPlanner instance for each test. """
         self.planner = FinancialPlanner()
         
-    @patch("sys.stdin",StringIO(f"1aptop\n{laptop}"))
+    @patch("sys.stdin",StringIO(f"1aptop\n{laptop}\nR5000\n5000\n11\n8\nTwelve\n12"))
     def test_short_goal(self):
         """
             Testing invalid prompt for short goal
         """
         output = StringIO()
         sys.stdout = output
-        short_goal = self.planner.get_short_goal()
+        short_goal, target_amt, priority, timefr = self.planner.get_short_goal()
         
         self.assertEqual(output.getvalue(), f"""Insert your short goal
-Invalid short goal
+Invalid short goal name
 Insert your short goal
+Insert the target amount
+Invalid target amount
+Insert the target amount
+Insert its priority between 1 and 10
+Invalid priority
+Insert its priority between 1 and 10
+Insert timeframe
+Invalid timeframe
+Insert timeframe
 Your goal is {laptop}\n""")
-        self.assertEqual(short_goal, f"{laptop}")
+        self.assertEqual((short_goal,target_amt,priority,timefr), (laptop,5000.00,8,12))
         
-    @patch("sys.stdin",StringIO(f"1aptop\n{laptop}"))    
+    @patch("sys.stdin",StringIO(f"1aptop\n{laptop}\nR5000\n5000\n11\n8\nTwelve\n12"))   
     def test_long_goal(self):
         """
             Testing invalid prompt for long goal
         """
         output = StringIO()
         sys.stdout = output
-        short_goal = self.planner.get_long_goal()
         
-        self.assertEqual(output.getvalue(), f"""Insert your long goal
-Invalid long goal
-Insert your long goal
+        short_goal, target_amt, priority, timefr = self.planner.get_short_goal()
+        
+        self.assertEqual(output.getvalue(), f"""Insert your short goal
+Invalid short goal name
+Insert your short goal
+Insert the target amount
+Invalid target amount
+Insert the target amount
+Insert its priority between 1 and 10
+Invalid priority
+Insert its priority between 1 and 10
+Insert timeframe
+Invalid timeframe
+Insert timeframe
 Your goal is {laptop}\n""")
-        self.assertEqual(short_goal, f"{laptop}")
+        self.assertEqual((short_goal,target_amt,priority,timefr), (laptop,5000.00,8,12))
         
-    @patch("sys.stdin",StringIO(f"1aptop\n{laptop}"))   
+    @patch("sys.stdin",StringIO(f"1aptop\n{laptop}\nR5000\n5000\n11\n8\nTwelve\n12"))
     def test_medium_goal(self):
         """
             Testing invalid prompt for medium goal
         """
         output = StringIO()
         sys.stdout = output
-        medium_goal = self.planner.get_medium_goal()
+        medium_goal, target_amt, priority, timefr = self.planner.get_medium_goal()
         
         self.assertEqual(output.getvalue(), f"""Insert your medium goal
-Invalid medium goal
+Invalid medium goal name
 Insert your medium goal
+Insert the target amount
+Invalid target amount
+Insert the target amount
+Insert its priority between 1 and 10
+Invalid priority
+Insert its priority between 1 and 10
+Insert timeframe
+Invalid timeframe
+Insert timeframe
 Your goal is {laptop}\n""")
-        self.assertEqual(medium_goal, f"{laptop}")
+        self.assertEqual((medium_goal,target_amt,priority,timefr), (laptop,5000.00,8,12))
         
     def test_input_finances(self):
         """Testing correct finance input."""

@@ -3,7 +3,7 @@ from datetime import datetime
 current_date = datetime.now().strftime("%m-%d-%y")
 
 # Placeholder for AI integration (An API or local model)
-def ai_guidance(goal,finces,swot):
+def ai_guidance(goal,finances,swot):
     pass
 
 # class to manage financial data and goals
@@ -62,39 +62,112 @@ class FinancialPlanner:
         print(f"Income: (R{income})")
         # print(f"Expenses: ({",".join(key+": R"+value for key,value in finances["Expenses"].items())})")
         print(f"Expenses: ({expense_clean})")
+        return income, expense_clean
     
     # getting long goal from user
     def get_long_goal(self):
+        """"
+        Vacation" (R2,000, short-term, priority 8, timeframe 12 months)
+
+        Returns:
+            _string_: _name of the goal_
+            _float_: _target amount of the goal_
+            _int_: _priority of the goal_
+            _int_: _timeframe of the goal_
+        """
         while True:
             long_goal = input("Insert your long goal\n").lower()
             if long_goal.isalpha():
                 break
-            print("Invalid long goal")
+            print("Invalid long goal name")
+        while True:
+            target_amount = input("Insert the target amount\n").lower()
+            if target_amount.isdigit():
+                break
+            print("Invalid target amount")
+        while True:
+            priority = input("Insert its priority between 1 and 10\n").lower()
+            if priority.isdigit() and 1<= int(priority) <=10:
+                break
+            print("Invalid priority")
+        while True:
+            timeframe = input("Insert timeframe\n").lower()
+            if timeframe.isdigit():
+                break
+            print("Invalid timeframe")
             
         print(f"Your goal is {long_goal}")
-        return long_goal
+        return (long_goal, float(target_amount), int(priority),int(timeframe))
     
     # getting medium goal from user
     def get_medium_goal(self):
+        """"
+        Vacation" (R2,000, short-term, priority 8)
+
+        Returns:
+            _string_: _name of the goal_
+            _float_: _target amount of the goal_
+            _int_: _priority of the goal_
+            _int_: _timeframe of the goal_
+        """
         while True:
             medium_goal = input("Insert your medium goal\n").lower()
             if medium_goal.isalpha():
                 break
-            print("Invalid medium goal")
+            print("Invalid medium goal name")
+        while True:
+            target_amount = input("Insert the target amount\n").lower()
+            if target_amount.isdigit():
+                break
+            print("Invalid target amount")
+        while True:
+            priority = input("Insert its priority between 1 and 10\n").lower()
+            if priority.isdigit() and 1<= int(priority) <=10:
+                break
+            print("Invalid priority")
+        while True:
+            timeframe = input("Insert timeframe\n").lower()
+            if timeframe.isdigit():
+                break
+            print("Invalid timeframe")
             
         print(f"Your goal is {medium_goal}")
-        return medium_goal
+        return (medium_goal, float(target_amount), int(priority),int(timeframe))
     
     # getting short goal from user
     def get_short_goal(self):
+        """"
+        Vacation" (R2,000, short-term, priority 8)
+
+        Returns:
+            _string_: _name of the goal_
+            _float_: _target amount of the goal_
+            _int_: _priority of the goal_
+            _int_: _timeframe of the goal_
+        """
         while True:
             short_goal = input("Insert your short goal\n").lower()
             if short_goal.isalpha():
                 break
-            print("Invalid short goal")
+            print("Invalid short goal name")
+        while True:
+            target_amount = input("Insert the target amount\n").lower()
+            if target_amount.isdigit():
+                break
+            print("Invalid target amount")
+        while True:
+            priority = input("Insert its priority between 1 and 10\n").lower()
+            if priority.isdigit() and 1<= int(priority) <=10:
+                break
+            print("Invalid priority")
+        while True:
+            timeframe = input("Insert timeframe\n").lower()
+            if timeframe.isdigit():
+                break
+            print("Invalid timeframe")
             
         print(f"Your goal is {short_goal}")
-        return short_goal
+        return (short_goal, float(target_amount), int(priority),int(timeframe))
     def input_goals(self):
         pass
 
