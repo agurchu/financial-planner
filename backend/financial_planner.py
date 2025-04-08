@@ -177,10 +177,10 @@ class FinancialPlanner:
     def calculate_progress(self):
         pass
 
-    def save_data(self, filename="fincaial_plan.json"):
+    def save_data(self, filename="data.json"):
         pass
 
-    def load_data(self, filename="financial_plan.json"):
+    def load_data(self, filename="data.json"):
         pass
 
 # Main program
