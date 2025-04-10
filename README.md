@@ -1,12 +1,12 @@
-Financial Planner
+# Financial Planner
 
 A python-based tool to manage personal finances, track short-term, medium-term, and long-term goals, and 
 provide AI-driven guidance based on your lifestyle and SWOT analysis.
 
 
-Overview
+# Overview
 
-The Financial Planner helps you:
+# The Financial Planner helps you:
 
 * Input your monthly income and expenses.
 * Define finacial goals with taget amounts, timeframes, and priorities.
@@ -16,7 +16,7 @@ The Financial Planner helps you:
 * Save and load your data for persistence.
 
 
-Features
+# Features
 
 * Financial Tracking: Record income and categorized expenses.
 * Goal Management: Set goals across three timeframes with customizable prioties(1-10)
@@ -27,13 +27,9 @@ Features
 * Error Handling: Robustly handles invalid inputs (e.g., non-numeric valus).
 
 
-Requirements
+# Requirements
 
 * Python 3.6
 * No external libraries required for core functionality (optional: unittest for testing)
-
-
-Installation
-
-1. 
+ 
 

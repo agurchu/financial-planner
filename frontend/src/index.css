@@ -11,12 +11,12 @@
 }
 
 .btn-full {
-  @apply bg-orange-600 justify-center border-transparent flex items-center text-white w-full text-sm rounded-md font-medium;
+  @apply bg-secondary-2 justify-center border-transparent flex items-center text-white w-full text-sm rounded-md font-medium;
   height: 40px;
   transition: 0.25s ease;
 }
 .btn-full:hover {
-  @apply bg-green-500;
+  @apply bg-secondary-2;
 }
 
 .mainGrid {
@@ -30,7 +30,7 @@
   @apply absolute bottom-[-27%] left-0 h-[3px] w-full bg-[crimson];
 }
 .sub_title {
-  @apply pt-3 text-[15px] text-orange-600 pb-3;
+  @apply pt-3 text-[15px] text-secondary-2 pb-3;
 }
 
 .productDiscountPrice {
@@ -45,19 +45,22 @@
 }
 
 .item-hover {
-  @apply hover:text-orange-600 transition ease-in-out duration-[250ms];
+  @apply hover:text-primary-2 transition ease-in-out duration-[250ms];
 }
 
-.productTitle {
-  @apply font-[600] font-Roboto text-[#333];
+.title {
+  @apply font-[600] font-Roboto text-accent;
 }
 
 .button {
-  @apply w-[150px] bg-black h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer;
+  @apply w-[150px] bg-gradient-to-r from-primary-2 to-secondary-2 h-[50px] my-3 flex items-center justify-center rounded-xl cursor-pointer;
 }
 
 .button2 {
-  @apply bg-black rounded w-[150px] cursor-pointer mt-6 h-11 normalFlex justify-center;
+  @apply border-white/75 border rounded-lg w-[150px] cursor-pointer mt-6 h-11 normalFlex justify-center;
+}
+.button2:hover {
+  @apply bg-gradient-to-r from-primary-2 to-secondary-1 border-0 shadow-lg;
 }
 
 * {
