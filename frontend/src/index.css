@@ -18,19 +18,22 @@
 .btn-full:hover {
   @apply bg-secondary-2;
 }
+.input_btn{
+  @apply block bg-gray-50 text-accent appearance-none w-full rounded-md hover:shadow-lg placeholder-gray-400 py-2 px-3 focus:outline-none focus:border focus:ring-secondary-2 focus:border-secondary-2 sm:text-sm
+}
 
 .mainGrid {
   @apply grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 xl:grid-cols-5 lg:grid-cols-3 lg:gap-6 xl:gap-7 mb-12 border-0;
 }
 
 .heading {
-  @apply text-[27px] text-center md:text-start font-[600] font-Roboto pb-[20px];
+  @apply text-2xl text-center md:text-start font-bold font-Roboto;
 }
 .active_indicator {
   @apply absolute bottom-[-27%] left-0 h-[3px] w-full bg-[crimson];
 }
 .sub_title {
-  @apply pt-3 text-[15px] text-secondary-2 pb-3;
+  @apply text-xs text-primary-1;
 }
 
 .productDiscountPrice {
@@ -57,10 +60,10 @@
 }
 
 .button2 {
-  @apply border-white/75 border rounded-lg w-[150px] cursor-pointer mt-6 h-11 normalFlex justify-center;
+  @apply border-primary-1 border font-semibold rounded-lg w-28 cursor-pointer mt-6 h-8 normalFlex justify-center;
 }
 .button2:hover {
-  @apply bg-gradient-to-r from-primary-2 to-secondary-1 border-0 shadow-lg;
+  @apply bg-primary-1/75 border-0 shadow-lg text-accent;
 }
 
 * {

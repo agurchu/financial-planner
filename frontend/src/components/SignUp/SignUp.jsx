@@ -1,7 +1,9 @@
 import React, {useState} from "react";
 import  {Link, useNavigate} from "react-router-dom";
-import { AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai"
+import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlineUser } from "react-icons/ai"
 import { RxAvatar } from "react-icons/rx";
+
+import { HiMail } from "react-icons/hi";
 
 export default function SignUp() {
     const [fullName, setFullName] = useState("")
@@ -15,8 +17,11 @@ export default function SignUp() {
         if (visible) return "text";
         return "password";
       };
-    
-      const handleSubmit = async (e) => {
+    const handleFileInputChange = (e) => {
+        const file = e.target.files[0];
+        setAvatar(file);
+      };
+    const handleSubmit = async (e) => {
         e.preventDefault();
     }
     return(<>
@@ -28,60 +33,95 @@ export default function SignUp() {
             
             }
             <div className="section">
-            <div className="bg-primary-1 backdrop-blur-sm rounded-xl mt-8 max-h-screen grid sm:grid-cols-2 sm:mx-auto sm:max-w-3xl sm:w-full shadow-lg">
-                <div className="bg-secondary-2/75 rounded-t-lg sm:rounded-l-lg normalFlex sm:rounded-r-[7.5rem] rounded-b-[7.5rem]">
+            <div className="bg-primary-1 backdrop-blur-sm rounded-3xl mt-8 max-h-screen grid sm:grid-cols-2 sm:mx-auto sm:max-w-3xl sm:w-full shadow-lg">
+                <div className="bg-secondary-2/75 rounded-t-3xl sm:rounded-l-3xl normalFlex sm:rounded-r-[6rem] rounded-b-[6rem]">
                     <div className="sm:mx-auto my-10  grid justify-items-center items-center w-full text-white">
-                            <h2 className="mb-1 text-center text-3xl font-extrabold ">
-                                Hello, welcome!
+                            <h2 className="heading">
+                                Hello, Welcome!
                             </h2>
-                            <p>Don't have an account?</p>
-                            <button className="button2 ">Register</button>
+                            <p className="sub_title">Have an account already?</p>
+                            <button className="button2 ">Login</button>
                     </div>
                     
                 </div>
                 
-                <div className=" sm:max-w-lg sm:rounded-r-lg  py-8  sm:px-10">
+                <div className=" sm:max-w-lg sm:rounded-r-lg  py-8  px-6">
                     <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                        <h2 className="mt-1 mb-6 text-center text-3xl font-extrabold text-gray-900">
+                        <h2 className="mt-1 mb-4 text-center text-2xl font-bold text-accent">
                             Sign Up
                         </h2>
                     </div>
                     <form className="space-y-6 text-accent" onSubmit={handleSubmit} >
                         <div>
-                            <label htmlFor="fullName" className="block text-sm font-medium text-accent">
-                                Full Name
-                            </label>
-                            <div className="mt-1">
-                                <input type="text" placeholder="e.g Katlego Jim Mtimane" 
-                                    className="block text-accent appearance-none w-full border border-secondary-1 rounded-md shadow-lg placeholder-gray-400 py-2 px-3 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
-                                />
+                          
+                            <div className="mt-1 relative">
+                                <input type="text" placeholder="Full name" 
+                                    className="input_btn"/>
+                                <AiOutlineUser className="absolute right-2 top-2 text-gray-400"/>  
                             </div>
                         </div>
                         <div>
-                            <label htmlFor="email">
-                                Email address
-                            </label>
-                            <div className="mt-1">
-                                <input type="email" 
-                                className="block text-accent appearance-none w-full border border-secondary-1 rounded-md shadow-lg placeholder-gray-400 py-2 px-3 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
-                                />
+                          
+                            <div className="mt-1 relative">
+                                <input type="email" placeholder="Email address"
+                                className="input_btn" />
+                                <HiMail className="absolute right-2 top-2 text-gray-400"/>
                             </div>
                         </div>
                         <div>
-                            <label htmlFor="password">
-                                Password
-                            </label>
-                            <div className="mt-1"> 
-                                <input type={passwordType()} 
-                                className="block text-accent appearance-none w-full border border-secondary-1 rounded-md shadow-lg placeholder-gray-400 py-2 px-3 focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm"
-                                />
+                           
+                            <div className="mt-1 relative"> 
+                                <input type={passwordType()}  placeholder="Password"
+                                className="input_btn"/>
+
+                                {visible ? (
+                            <AiOutlineEye
+                                className="absolute right-2 top-2 cursor-pointer text-gray-400"
+                                size={22}
+                                onClick={() => setVisible(false)}
+                            />
+                            ) : (
+                            <AiOutlineEyeInvisible
+                                className="absolute right-2 top-2 cursor-pointer text-gray-400"
+                                size={22}
+                                onClick={() => setVisible(true)}
+                            />
+                            )}
                             </div>
                         </div>
+                        {/* ================= Avater file ================== */}
                         <div>
-                            <label htmlFor="file-input">
-                                <span>Upload an image</span>
-                                <input type="file" />
+                            <label htmlFor="file-input"  className="block text-sm font-medium text-gray-700">
                             </label>
+                            <div className="mt-2 flex items-center">
+                                <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
+                                    {avatar ? (
+                                        <img
+                                        className="h-full w-full object-cover rounded-full"
+                                        src={URL.createObjectURL(avatar)}
+                                        alt="avatar"
+                                        />
+                                    ) : (
+                                        <RxAvatar className="h-8 w-8 text-gray-400" />
+                                    )}
+                                </span>
+
+                                    <label
+                                    htmlFor="file-input"
+                                    className="ml-5 cursor-pointer flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50"
+                                    >
+                                    <span>Upload a file</span>
+                                    <input
+                                        type="file"
+                                        name="avatar"
+                                        id="file-input"
+                                        accept=".jpg,.jpeg,.png"
+                                        onChange={handleFileInputChange}
+                                        className="sr-only"
+                                    />
+                                    </label>
+
+                            </div>
                             
                         </div>
                     </form>
