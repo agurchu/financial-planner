@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import  {Link, useNavigate} from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlineUser } from "react-icons/ai"
 import { RxAvatar } from "react-icons/rx";
-
+import bgImage from "../../assets/background-1.jpg"
 import { HiMail } from "react-icons/hi";
 
 export default function SignUp() {
@@ -32,42 +32,38 @@ export default function SignUp() {
             */
             
             }
-            <div className="section">
-            <div className="bg-primary-1 backdrop-blur-sm rounded-3xl mt-8 max-h-screen grid sm:grid-cols-2 sm:mx-auto sm:max-w-3xl sm:w-full shadow-lg">
-                <div className="bg-secondary-2/75 rounded-t-3xl sm:rounded-l-3xl normalFlex sm:rounded-r-[6rem] rounded-b-[6rem]">
+            <section style={{backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center'}} className="section">
+            <div className="bg-primary-1/25 backdrop-blur-md rounded-3xl mt-8 sm:max-h-[400px] grid sm:grid-cols-2 sm:mx-auto sm:max-w-3xl w-full shadow-lg">
+                <div className="bg-secondary-1/75 rounded-t-3xl sm:rounded-l-3xl normalFlex sm:rounded-r-[6rem] rounded-b-[6rem]">
                     <div className="sm:mx-auto my-10  grid justify-items-center items-center w-full text-white">
                             <h2 className="heading">
                                 Hello, Welcome!
                             </h2>
                             <p className="sub_title">Have an account already?</p>
-                            <button className="button2 ">Login</button>
+                            <Link to="/login"  className="button2 ">Login</Link>
                     </div>
                     
                 </div>
                 
                 <div className=" sm:max-w-lg sm:rounded-r-lg  py-8  px-6">
                     <div className="sm:mx-auto sm:w-full sm:max-w-md">
-                        <h2 className="mt-1 mb-4 text-center text-2xl font-bold text-accent">
+                        <h2 className="mt-1 mb-4 text-center text-2xl font-bold text-white">
                             Sign Up
                         </h2>
                     </div>
                     <form className="space-y-6 text-accent" onSubmit={handleSubmit} >
-                        <div>
-                          
                             <div className="mt-1 relative">
                                 <input type="text" placeholder="Full name" 
                                     className="input_btn"/>
                                 <AiOutlineUser className="absolute right-2 top-2 text-gray-400"/>  
                             </div>
-                        </div>
-                        <div>
                           
                             <div className="mt-1 relative">
                                 <input type="email" placeholder="Email address"
                                 className="input_btn" />
                                 <HiMail className="absolute right-2 top-2 text-gray-400"/>
                             </div>
-                        </div>
+                        
                         <div>
                            
                             <div className="mt-1 relative"> 
@@ -90,9 +86,6 @@ export default function SignUp() {
                             </div>
                         </div>
                         {/* ================= Avater file ================== */}
-                        <div>
-                            <label htmlFor="file-input"  className="block text-sm font-medium text-gray-700">
-                            </label>
                             <div className="mt-2 flex items-center">
                                 <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
                                     {avatar ? (
@@ -122,13 +115,13 @@ export default function SignUp() {
                                     </label>
 
                             </div>
-                            
-                        </div>
+
+                            <button type="submit" className="btn-full group relative">
+                                Sign Up
+                            </button>                   
                     </form>
                 </div>
             </div>
-            </div>
-
-
+            </section>
         </> );
 }
