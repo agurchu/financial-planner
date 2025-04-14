@@ -2,13 +2,13 @@ import React, {useState} from "react";
 import  {Link, useNavigate} from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible, AiOutlineUser } from "react-icons/ai"
 import { RxAvatar } from "react-icons/rx";
-import bgImage from "../../assets/background-1.jpg"
+
 import { HiMail } from "react-icons/hi";
 
 export default function SignUp() {
-    const [fullName, setFullName] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+    const [fullName, setFullName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [visible, setVisible] = useState(false);
     const [avatar, setAvatar] = useState(null);
 
@@ -32,9 +32,9 @@ export default function SignUp() {
             */
             
             }
-            <section style={{backgroundImage: `url(${bgImage})`, backgroundSize: 'cover', backgroundPosition: 'center'}} className="section">
+            <section  className="section">
             <div className="bg-primary-1/25 backdrop-blur-md rounded-3xl mt-8 sm:max-h-[400px] grid sm:grid-cols-2 sm:mx-auto sm:max-w-3xl w-full shadow-lg">
-                <div className="bg-secondary-1/75 rounded-t-3xl sm:rounded-l-3xl normalFlex sm:rounded-r-[6rem] rounded-b-[6rem]">
+                <div className="bg-secondary-2/75 rounded-t-3xl sm:rounded-l-3xl normalFlex sm:rounded-r-[6rem] rounded-b-[6rem]">
                     <div className="sm:mx-auto my-10  grid justify-items-center items-center w-full text-white">
                             <h2 className="heading">
                                 Hello, Welcome!

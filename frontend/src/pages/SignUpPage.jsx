@@ -12,7 +12,7 @@ export default function SignupPage() {
     // if (isAuthenticated === true) {
     //   navigate("/");
     // }
-    navigate("/")
+    navigate("/signup")
   }, []);
   return (
     <div>
