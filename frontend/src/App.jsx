@@ -1,24 +1,29 @@
-import React, { useEffect } from "react";
+import React from "react";
 import './App.css';
 import SignupPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
-import Layout from './Layout.jsx'
+import DashboardPage from './pages/DashboardPage.jsx';
+import Sidebar from './components/Sidebar.jsx';
+
 import {Routes, Route } from "react-router-dom";
+import Header from "./components/Header.jsx";
 
 function App() {
 
 
   return (
-    <>
-    
+    <div className="flex flex-col h-screen overflow-hidden">
+        <Header />
+        <div className="flex h-screen overflow-hidden">
+        <Sidebar/>
         <Routes>
-          <Route path="/" element={<Layout />}/>
+          <Route path="/" element={<DashboardPage />}/>
           <Route path="/signup" element={<SignupPage />}/>
           <Route path="/login" element={<LoginPage />}/>
 
         </Routes>
-    
-    </>
+        </div>
+    </div>
   )
 }
 
