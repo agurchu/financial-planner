@@ -6,7 +6,7 @@ export default function StatCard({ name, icon: Icon, value, percentage }) {
   return (
     <motion.div
       whileHover={{ y: -2, boxShadow: "0 20px 25px -12px rgba(0,0,0,0.25)" }}
-      className="bg-accent/50 w-full max-w-64 border max-h-max border-primary-1/25 overflow-hidden backdrop-blur-md shadow-lg rounded-xl"
+      className="bg-primary-1/5 hover:bg-accent w-full max-w-64 border max-h-max border-primary-1/25 overflow-hidden backdrop-blur-md shadow-xl rounded-xl"
     >
       <div className="p-4 sm:px-4 sm:py-3 flex ">
         <div className=" text-primary-1/50 relative text-start text-sm">

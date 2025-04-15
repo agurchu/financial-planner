@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React from "react";
 import {
   CartesianGrid,
@@ -9,28 +10,32 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import {motion} from "framer-motion"
 
 const data = [
-  { name: "Jan", income: 4000, expenses: 2000 },
-  { name: "Feb", income: 4000, expenses: 2500 },
-  { name: "Mar", income: 4000, expenses: 1800 },
-  { name: "Apr", income: 4000, expenses: 2100 },
-  { name: "May", income: 4000, expenses: 1950 },
-  { name: "Jun", income: 4000, expenses: 2000 },
-  { name: "Jul", income: 4000, expenses: 2000 },
-  { name: "Aug", income: 4000, expenses: 2000 },
-  { name: "Sep", income: 4000, expenses: 2000 },
-  { name: "Oct", income: 4000, expenses: 2000 },
-  { name: "Nov", income: 4000, expenses: 2000 },
-  { name: "Dec", income: 4000, expenses: 2000 },
+  { name: "Jan", income: 3000, expenses: 2750 },
+  { name: "Feb", income: 3000, expenses: 2500 },
+  { name: "Mar", income: 3000, expenses: 2900 },
+  { name: "Apr", income: 3500, expenses: 2890 },
+  { name: "May", income: 3000, expenses: 2950 },
+  { name: "Jun", income: 3000, expenses: 2610 },
+  { name: "Jul", income: 3700, expenses: 3000 },
+  { name: "Aug", income: 3200, expenses: 2100 },
+  { name: "Sep", income: 3400, expenses: 2700 },
+  { name: "Oct", income: 4000, expenses: 3200 },
+  { name: "Nov", income: 3800, expenses: 4000 },
+  { name: "Dec", income: 3000, expenses: 3800 },
 ];
 
 export default function IncomeExpensesChart() {
   return (
-    <motion.div>
-      <h2>Income vs Expenses</h2>
-      <div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: 0.25 }}
+      className="h-96 min-w-96 bg-primary-1/5 hover:bg-accent backdrop-blur-xl shadow-xl rounded-3xl p-6 border border-primary-1/25"
+    >
+      <h2 className="text-primary-1 font-medium text-lg">Income vs Expenses</h2>
+      <div className="h-80">
         <ResponsiveContainer width={"100%"} height={"100%"}>
           <LineChart
             width={500}
@@ -40,23 +45,18 @@ export default function IncomeExpensesChart() {
           >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey={"name"} />
-            <YAxis yAxisId={"left"} />
-            <YAxis yAxisId={"right"} orientation={"right"} />
+            <YAxis />
+            <YAxis />
             <Tooltip />
             <Legend />
             <Line
-              yAxisId="left"
+              dot={{ fill: "#3fd0c9", strokeWidth: 2, r: 3 }}
               type="monotone"
               dataKey="income"
-              stroke="#8884d8"
-              activeDot={{ r: 8 }}
+              stroke="#3fd0c9"
+              activeDot={{ r: 8, strokeWidth: 2 }}
             />
-            <Line
-              yAxisId="right"
-              type="monotone"
-              dataKey="expenses"
-              stroke="#82ca9d"
-            />
+            <Line type="monotone" dataKey="expenses" stroke="red" />
           </LineChart>
         </ResponsiveContainer>
       </div>

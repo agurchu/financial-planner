@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 import React from "react";
 import { GiExpense, GiReceiveMoney } from "react-icons/gi";
 import { MdOutlineAccountBalanceWallet, MdSavings } from "react-icons/md";
-import StatCard from "../components/reusable/StatCard";
+import ExpenseBreakdownChart from "../components/reusable/ExpenseBreakdownChart.jsx";
 import IncomeExpensesChart from "../components/reusable/IncomeExpensesChart.jsx";
-
+import StatCard from "../components/reusable/StatCard";
 
 function DashboardPage() {
   //   const navigate = useNavigate();
@@ -14,10 +14,10 @@ function DashboardPage() {
   //     navigate("/");
   //   }, []);
   return (
-    <main className="max-w-7xl  px-4 mx-auto mt-10 lg:px-8 ">
+    <main className="max-w-7xl w-full px-4 flex flex-col flex-wrap items-center mt-10 lg:px-8 ">
       {/* ============= Stats =============== */}
       <motion.div
-        className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 grid-cols-1 mb-8 w-full"
+        className="flex gap-2 flex-wrap justify-center items-center mb-4 w-full"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -49,8 +49,9 @@ function DashboardPage() {
       </motion.div>
       {/* ============== charts ================= */}
 
-      <div>
-        <IncomeExpensesChart/>
+      <div className="w-full flex flex-wrap justify-center gap-2">
+        <IncomeExpensesChart />
+        <ExpenseBreakdownChart />
       </div>
     </main>
   );

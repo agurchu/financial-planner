@@ -81,7 +81,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center; */
-  @apply bg-accent/90;
+  @apply bg-accent;
   scroll-behavior: smooth;
 }
 input,
