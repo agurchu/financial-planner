@@ -1,5 +1,6 @@
 import React from "react";
-import { MdOutlineLocalGroceryStore } from "react-icons/md";
+import { MdOutlineLocalGroceryStore,MdOutlineBed, MdOutlineElectricBolt} from "react-icons/md";
+import { GiAvoidance } from "react-icons/gi";
 import TransactionsCard from "./TransactionsCard.jsx";
 
 export default function Transactions() {
@@ -11,13 +12,34 @@ export default function Transactions() {
         </h2>
         <button className="text-secondary-2 font-bold">View all</button>
       </div>
-      <div>
+      <div className="grid gap-2">
         <TransactionsCard
           name="Groceries"
           icon={MdOutlineLocalGroceryStore}
           description="Food & Drinks"
           amt="500"
           date="Jan 06, 2025"
+        />
+        <TransactionsCard
+          name="Rent"
+          icon={MdOutlineBed}
+          description="Housing"
+          amt="2500"
+          date="Jan 01, 2025"
+        />
+        <TransactionsCard
+          name="Electricoty Bill"
+          icon={MdOutlineElectricBolt}
+          description="Utillities"
+          amt="900"
+          date="Jan 01, 2025"
+        />
+        <TransactionsCard
+          name="Entertainment"
+          icon={GiAvoidance}
+          description="Gaming & Cinema"
+          amt="150"
+          date="Jan 25, 2025"
         />
       </div>
     </div>
