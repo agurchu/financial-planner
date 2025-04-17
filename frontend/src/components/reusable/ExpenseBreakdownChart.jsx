@@ -38,10 +38,10 @@ const renderCustomizedLabel = ({
 };
 export default function ExpenseBreakdownChart() {
   return (
-    <div className="bg-primary-1/5 shadow-xl min-w-96 hover:bg-accent border flex flex-col  border-primary-1/25 rounded-3xl p-4">
+    <div className="bg-primary-1/5 shadow-xl max-w-max hover:bg-accent border flex flex-col  border-primary-1/25 rounded-3xl p-4">
         <h2 className="text-start font-bold text-xl text-primary-1 mb-4">Expenses Breakdown</h2>
-      <div className=" normalFlex flex-col sm:flex-row">
-        <div className="h-full w-full">
+      <div className=" normalFlex flex-col sm:flex-row ">
+        <div className="h-full min-w-48">
           <ResponsiveContainer width="100%" height="100%">
             <PieChart width={400} height={400}>
               <Pie
@@ -65,7 +65,7 @@ export default function ExpenseBreakdownChart() {
             </PieChart>
           </ResponsiveContainer>
         </div>
-        <div className="bg-primary-1/25 rounded-3xl grid p-4 sm:ml-2 max-h-max gap-2">
+        <div className="bg-primary-1/25 rounded-3xl grid p-4 sm:ml-2 sm:mt-0 mt-4 max-h-max gap-2">
           {data.map((item, index) => (
             <div className="flex items-center ">
               <div

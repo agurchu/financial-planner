@@ -32,10 +32,10 @@ export default function IncomeExpensesChart() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.25 }}
-      className="h-96 min-w-96 bg-primary-1/5 hover:bg-accent backdrop-blur-xl shadow-xl rounded-3xl p-6 border border-primary-1/25"
+      className="h-full min-w-96 bg-primary-1/5 hover:bg-accent backdrop-blur-xl shadow-xl rounded-2xl px-4 py-2 border border-primary-1/25"
     >
-      <h2 className="text-primary-1 font-medium text-lg">Income vs Expenses</h2>
-      <div className="h-80">
+      <h2 className="text-primary-1 text-start font-medium text-lg">Income vs Expenses</h2>
+      <div className="h-52">
         <ResponsiveContainer width={"100%"} height={"100%"}>
           <LineChart
             width={500}

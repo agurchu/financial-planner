@@ -5,6 +5,7 @@ import { MdOutlineAccountBalanceWallet, MdSavings } from "react-icons/md";
 import ExpenseBreakdownChart from "../components/reusable/ExpenseBreakdownChart.jsx";
 import IncomeExpensesChart from "../components/reusable/IncomeExpensesChart.jsx";
 import StatCard from "../components/reusable/StatCard";
+import Transactions from "../components/reusable/Transactions.jsx";
 
 function DashboardPage() {
   //   const navigate = useNavigate();
@@ -14,7 +15,7 @@ function DashboardPage() {
   //     navigate("/");
   //   }, []);
   return (
-    <main className="max-w-7xl w-full px-4 flex flex-col flex-wrap items-center mt-10 lg:px-8 ">
+    <main className="max-w-7xl w-full px-4 min-h-full overflow-auto flex mx-auto flex-col items-center py-2 lg:px-8 ">
       {/* ============= Stats =============== */}
       <motion.div
         className="flex gap-2 flex-wrap justify-center items-center mb-4 w-full"
@@ -49,9 +50,14 @@ function DashboardPage() {
       </motion.div>
       {/* ============== charts ================= */}
 
-      <div className="w-full flex flex-wrap justify-center gap-2">
-        <IncomeExpensesChart />
-        <ExpenseBreakdownChart />
+      <div className="w-full justify-center grid lg:grid-cols-2 grid-cols-1 mx-auto gap-2">
+        <div className="grid gap-2 ">
+          <IncomeExpensesChart />
+          <Transactions />
+        </div>
+        <div className="grid gap-2">
+          <ExpenseBreakdownChart />
+        </div>
       </div>
     </main>
   );
