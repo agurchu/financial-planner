@@ -17,7 +17,7 @@ export default function Sidebar(){
     const [isSidebarOpen,setIsSidebarOpen] = useState(true);
     
     return(
-        <motion.div className={`justify-between p-8 h-svh flex flex-col bg-accent border-r border-r-primary-1/25 flex-shrink-0 transition-all duration-[250ms] ease-in-out ${isSidebarOpen ? "w-54 " : "w-24 pl-4 pr-2"}` }
+        <motion.div className={`justify-between p-8 h-svh flex flex-col bg-accent flex-shrink-0 transition-all duration-[250ms] ease-in-out ${isSidebarOpen ? "w-54 " : "w-24 pl-4 pr-2"}` }
         animate={{width: isSidebarOpen ? 230 : 90}}
         >
             <div className="h-full flex flex-col relative">

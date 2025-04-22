@@ -8,7 +8,7 @@ export default function TransactionsCard({
   date,
 }) {
   return (
-    <div className="border rounded-lg px-3 py-2 border-primary-1/25 justify-between flex ">
+    <div className="border-l-[1px] border-t-[1px] rounded-lg px-3 py-2 border-primary-1/25 justify-between flex ">
       <div className="normalFlex gap-2">
         <div className="w-10 h-10 normalFlex text-secondary-2 bg-secondary-1/25 rounded-full">
           <Icon size={24} />

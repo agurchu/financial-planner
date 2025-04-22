@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { MdOutlineLocalGroceryStore,MdOutlineBed, MdOutlineElectricBolt} from "react-icons/md";
 import { GiAvoidance } from "react-icons/gi";
 import TransactionsCard from "./TransactionsCard.jsx";
+import { motion } from "framer-motion";
 
 const items = [
   <TransactionsCard
@@ -42,7 +43,12 @@ export default function Transactions() {
 
   const displayedItems = isExpanded ? items : items.slice(0, 3);
   return (
-    <div className="border border-primary-1/25 rounded-2xl p-4 bg-primary-1/5 hover:bg-accent">
+    <motion.div
+    initial={{ opacity: 0, x: 25 }}
+    animate={{ opacity: 1, x: 0 }}
+    
+    whileHover={{ x: 2, boxShadow: "0 20px 25px -12px rgba(0,0,0,0.25)" }}
+    className="border-l-[1px] border-t-[1px] border-primary-1/25 shadow-2xl rounded-2xl p-4 bg-primary-1/5">
       <div className="flex justify-between mb-4">
         <h2 className="text-primary-1 font-bold text-lg">
           Recent Transactions
@@ -57,6 +63,6 @@ export default function Transactions() {
         <div key={index}>{item}</div>
       ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

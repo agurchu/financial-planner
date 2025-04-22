@@ -5,7 +5,7 @@ import { MdLightMode, MdModeNight } from "react-icons/md";
 export default function Header() {
   const [isNightMode, setIsNightMode] = useState(true);
   return (
-    <div className="bg-accent w-full justify-between flex h-16 px-8 py-3 border-b border-primary-1/25 ">
+    <div className="bg-accent w-full justify-between flex h-16 px-8 py-3  ">
       <div className=" flex flex-col items-start relative">
         <span className="text-secondary-2 font-Poppins font-black text-2xl">
           Ritmo
