@@ -6,6 +6,7 @@ import ExpenseBreakdownChart from "../components/reusable/ExpenseBreakdownChart.
 import IncomeExpensesChart from "../components/reusable/IncomeExpensesChart.jsx";
 import StatCard from "../components/reusable/StatCard";
 import Transactions from "../components/reusable/Transactions.jsx";
+import Goals from "../components/reusable/Goals.jsx";
 
 function DashboardPage() {
   //   const navigate = useNavigate();
@@ -57,6 +58,7 @@ function DashboardPage() {
         </div>
         <div className="grid gap-2">
           <ExpenseBreakdownChart />
+          <Goals />
         </div>
       </div>
     </main>
