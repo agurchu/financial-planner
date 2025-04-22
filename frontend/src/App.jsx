@@ -1,5 +1,6 @@
 import React from "react";
 import './App.css';
+import { ModeProvider } from "./context/ModeContext.jsx";
 import SignupPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage.jsx';
@@ -12,6 +13,7 @@ function App() {
 
 
   return (
+ 
     <div className="flex flex-col h-screen overflow-hidden">
         <Header />
         <div className="flex h-screen overflow-hidden">
@@ -24,6 +26,7 @@ function App() {
         </Routes>
         </div>
     </div>
+ 
   )
 }
 

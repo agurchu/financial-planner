@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import {Link} from "react-router-dom"
 import { AnimatePresence, motion } from "motion/react"
+import { useMode } from "../context/ModeContext";
 
 import { TbLayoutDashboardFilled,TbWallet, TbLogout } from "react-icons/tb";
 import { GrTransaction } from "react-icons/gr";
@@ -15,6 +16,7 @@ const sideBarItems = [
 
 export default function Sidebar(){
     const [isSidebarOpen,setIsSidebarOpen] = useState(true);
+    // const {mode, toggleMode} = useMode();
     
     return(
         <motion.div className={`justify-between p-8 h-svh flex flex-col bg-accent flex-shrink-0 transition-all duration-[250ms] ease-in-out ${isSidebarOpen ? "w-54 " : "w-24 pl-4 pr-2"}` }
