@@ -4,6 +4,7 @@ import { ModeProvider } from "./context/ModeContext.jsx";
 import SignupPage from './pages/SignUpPage';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage.jsx';
+import TransactionsPage from './pages/TransactionsPage.jsx';
 import Sidebar from './components/Sidebar.jsx';
 
 import {Routes, Route } from "react-router-dom";
@@ -20,6 +21,7 @@ function App() {
         <Sidebar/>
         <Routes>
           <Route path="/" element={<DashboardPage />}/>
+          <Route path="/transactions" element={<TransactionsPage />}/>
           <Route path="/signup" element={<SignupPage />}/>
           <Route path="/login" element={<LoginPage />}/>
 
